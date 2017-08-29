@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p" xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- 自动扫描该控制器层的包，包路径指到控制层包路径 -->
+    <context:component-scan base-package="com.zhejiang.zhixin.controller"></context:component-scan>
+    <!-- 定义跳转的文件的url路径中的前缀和后缀 ，视图模式配置 -->
+    <bean
+            class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <!-- action的方法return的字符串会自动加上前缀和后缀，变成一个的url地址 例如：action方法中返回的 内容是 “logined”
+            字符串，那么该配置就是在返回的字符串加上前缀和后缀 变成了： /WEB-INF/views/logined.jsp,作为跳转的url -->
+        <!-- 前缀 -->
+        <property name="prefix" value="/"/>
+        <!-- 后缀 -->
+        <property name="suffix" value=".jsp"/>
+    </bean>
+</beans>
